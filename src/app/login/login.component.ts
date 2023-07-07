@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostBinding, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder,FormGroup } from '@angular/forms';
 import { Route, Router } from '@angular/router';
+import { MatSlideToggleChange } from '@angular/material/slide-toggle';
+
+
 
 @Component({
   selector: 'app-login',
@@ -11,28 +14,44 @@ import { Route, Router } from '@angular/router';
 
 
 export class LoginComponent implements OnInit {
+
+  isdarktheme=false                //using for theme change
   
   next:any
   loginform:any=FormGroup
+ 
  constructor(private http:HttpClient,private formbuilder:FormBuilder , private Router:Router)
  {
   console.log("Loin compo ")
  }
 
+
+
+//  theme({checked}:MatSlideToggleChange){
+//   this.isdarktheme=(checked)
+//  }
+
+
+
  ngOnInit(){
+  
   this.loginform = this.formbuilder.group({
     username:[''],
     password:['']
 
   })
+
+  
+
+ 
    
  }
 
    
  
   // console.log("fevtrtt")
-//  username: string = '';
-//   password: any = '';
+ //  username: string = '';
+ //   password: any = '';
  
 
   login(loginform:any) {
@@ -55,7 +74,6 @@ export class LoginComponent implements OnInit {
     })   
   }
 }
-function next(error: any): void {
-  throw new Error('Function not implemented.');
-}
+
+
 

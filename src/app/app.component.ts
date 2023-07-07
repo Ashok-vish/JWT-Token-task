@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
+import { MatSlideToggleChange } from '@angular/material/slide-toggle';
+
 // export class User{
 //   username?:string;
 //   password?:string;
@@ -11,4 +13,13 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
   title = 'JWT-Task';
+  isdarktheme=false
+
+  @HostBinding('class')
+  get thememode(){
+    return this.isdarktheme ? 'theme-dark': 'theme-light'
+  }
+  theme({checked}:MatSlideToggleChange){
+    this.isdarktheme=(checked)
+  }
 }

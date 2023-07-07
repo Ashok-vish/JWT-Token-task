@@ -10,6 +10,11 @@ import {ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { JwtinterceptInterceptor } from './jwtintercept.interceptor';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 
 @NgModule({
@@ -18,19 +23,29 @@ import { JwtinterceptInterceptor } from './jwtintercept.interceptor';
     LoginComponent,
     ProfileComponent,
     SignupComponent,
-    // FormGroup,
-    // FormControl
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatSlideToggleModule,
+    MatIconModule,
+    MatButtonModule,
+    MatToolbarModule
+    
+    
     
     
    
   ],
+  exports:[ 
+    
+  ],
+
   providers: [{provide:HTTP_INTERCEPTORS, useClass:JwtinterceptInterceptor , multi:true}],
   bootstrap: [AppComponent]
 })
